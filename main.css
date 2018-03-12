@@ -1,5 +1,35 @@
+.btn-primary {
+  margin-top: 20%;
+  margin-left: 40%;
+  font-weight: 800;
+}
+
+.btn-success {
+  font-weight: 800;
+}
+
 #card-form {
   display: none;
   width: 23%;
-  border: 3px solid blue;
+  background: #f2f2f2;
+  border: 3px solid #3683E3;
+  border-radius: 5px;
+  margin-top: 2em;
+  margin-left: 40% 
+}
+
+#card-element {
+  padding: 5px;
+  background-color: white;
+  height: 40px;
+  padding: 10px 12px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.margin-ten {
+  margin: 10px;
 }
