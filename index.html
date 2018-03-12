@@ -4,14 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <style> 
-    #card-form {
-      display: none;
-      width: 23%;
-      border: 3px solid blue;
-    }
-  </style>
-  <script src="https://js.stripe.com/v3/"></script>
+  <link rel='stylesheet' type='text/css' href='main.css'>
   <title>Stripe CC Modal</title>
 </head>
 <body>
@@ -32,27 +25,6 @@
       </div>
     </form>
 </body>
-<script>
-    
-    function addCard() {
-      var cardForm = document.getElementById("card-form");
-      if (cardForm.style.display === 'none') {
-        cardForm.style.display = 'block';
-      } else {
-        cardForm.style.display = 'none';
-      }
-    }
-
-    var stripe = Stripe('pk_test_0moAazCvxJryQwvF0eCHfpIp');
-    var elements = stripe.elements();
-
-    var card = elements.create('card');
-    card.mount('#card-element');
-
-    var promise = stripe.createToken(card);
-    promise.then(function(result) {
-      // result.token is the card token.
-    });
-
-  </script>
+<script src="https://js.stripe.com/v3/"></script>
+<script src="app.js"></script>
 </html>
