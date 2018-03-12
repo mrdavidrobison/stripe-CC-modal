@@ -26,7 +26,7 @@ card.addEventListener('change', function(event) {
   if (event.error) {
     displayError.textContent = event.error.message;
   } else {
-    displayError.textContent = '';
+    displayError.textContent = 'working';
   }
 });
 
@@ -34,7 +34,6 @@ card.addEventListener('change', function(event) {
 var form = document.getElementById('card-form');
 form.addEventListener('submit', function(event) {
   event.preventDefault();
-
   stripe.createToken(card).then(function(result) {
     if (result.error) {
       // Inform the user if there was an error.
@@ -45,4 +44,13 @@ form.addEventListener('submit', function(event) {
       stripeTokenHandler(result.token);
     }
   });
+});
+
+// "Enter" key clicks "Add New Card" button
+var input = document.getElementById("card-element");
+input.addEventListener("keyup", function(event) {
+  event.preventDefault();
+  if (event.keyCode === 13) {
+    document.getElementById("submit-btn").click();
+  }
 });
