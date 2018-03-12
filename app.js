@@ -15,7 +15,7 @@ var stripe = Stripe('pk_test_0moAazCvxJryQwvF0eCHfpIp');
 var elements = stripe.elements();
 
 // Create an instance of the card Element.
-var card = elements.create('card', {style: style});
+var card = elements.create('card');
 
 // Add an instance of the card Element into the `card-element` <div>.
 card.mount('#card-element');
@@ -31,7 +31,7 @@ card.addEventListener('change', function(event) {
 });
 
 // Handle form submission.
-var form = document.getElementById('payment-form');
+var form = document.getElementById('card-form');
 form.addEventListener('submit', function(event) {
   event.preventDefault();
 
