@@ -1,9 +1,9 @@
 function addCard() {
   var cardForm = document.getElementById("card-form");
-  if (cardForm.style.display === 'none') {
-    cardForm.style.display = 'block';
-  } else {
+  if (cardForm.style.display === 'block') {
     cardForm.style.display = 'none';
+  } else {
+    cardForm.style.display = 'block';
   }
 }
 
