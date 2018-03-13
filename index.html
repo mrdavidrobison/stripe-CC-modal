@@ -11,7 +11,7 @@
 <body>
   <button type="button" class="btn btn-primary" onclick='addCard()'>Add New Credit Card</button>
   <script src="https://js.stripe.com/v3/"></script>
-  <form id="card-form">
+  <form id="card-form" method='POST' action='new-card.php'>
     <label for="card-element" style='margin:10px;margin-top:20px;color:#878585;'>Credit or Debit Card</label>
     <div id="card-element" class="StripeElement StripeElement--complete" style='margin:10px;'>
       <div class="__PrivateStripeElement" style="margin: 0px !important; padding: 0px !important; border: none !important; display: block !important; background: transparent !important; position: relative !important; opacity: 1 !important;">
