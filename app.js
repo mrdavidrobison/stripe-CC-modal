@@ -26,9 +26,23 @@ card.addEventListener('change', function(event) {
   if (event.error) {
     displayError.textContent = event.error.message;
   } else {
-    displayError.textContent = 'working';
+    displayError.textContent = 1;
   }
 });
+
+// Send stripe token to server
+function stripeTokenHandler(token) {
+  // Insert the token ID into the form so it gets submitted to the server
+  var form = document.getElementById('card-form');
+// Add Stripe Token to hidden input
+  var hiddenInput = document.createElement('input');
+  hiddenInput.setAttribute('type', 'hidden');
+  hiddenInput.setAttribute('name', 'stripeToken');
+  hiddenInput.setAttribute('value', token.id);
+  form.appendChild(hiddenInput);
+// Submit form
+  form.submit();
+}
 
 // Handle form submission.
 var form = document.getElementById('card-form');
@@ -47,10 +61,10 @@ form.addEventListener('submit', function(event) {
 });
 
 // "Enter" key clicks "Add New Card" button
-var input = document.getElementById("card-element");
+var input = document.getElementById("card-form");
 input.addEventListener("keyup", function(event) {
   event.preventDefault();
   if (event.keyCode === 13) {
-    document.getElementById("submit-btn").click();
+    document.getElementsByClassName("btn-success").click();
   }
 });

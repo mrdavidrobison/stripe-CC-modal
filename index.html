@@ -10,6 +10,7 @@
 </head>
 <body>
   <button type="button" class="btn btn-primary" onclick='addCard()'>Add New Credit Card</button>
+  <script src="app.js"></script>
   <script src="https://js.stripe.com/v3/"></script>
   <form id="card-form" method='POST' action='new-card.php'>
     <label for="card-element" style='margin:10px;margin-top:20px;color:#878585;'>Credit or Debit Card</label>
@@ -21,9 +22,8 @@
             <input class="__PrivateStripeElement-safariInput" aria-hidden="true" tabindex="-1" style="border: none !important; display: block !important; position: absolute !important; height: 1px !important; top: 0px !important; left: 0px !important; padding: 0px !important; margin: 0px !important; width: 100% !important; opacity: 0 !important; background: transparent !important; pointer-events: none !important; font-size: 16px !important;">
       </div>
     </div>
-      <button type="submit" class='btn btn-success' id='submit-btn' style='margin:10px;margin-bottom:20px;'>Add New Card</button>
+      <button class='btn btn-success' style='margin:10px;margin-bottom:20px;'>Add New Card</button>
     </div>
-  </form>
+  </form> 
 </body>
-<script src="app.js"></script>
 </html>
