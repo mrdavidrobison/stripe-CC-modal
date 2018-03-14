@@ -1,11 +1,15 @@
 <?php
-  require_once('./config.php');
+  require_once('vendor/autoload.php');
 
-  $token  = $_POST['stripeToken'];
+  $stripe = array(
+    "secret_key"      => "sk_test_WEbEeRdvussZesfHk2ngsBX6",
+    "publishable_key" => "pk_test_0moAazCvxJryQwvF0eCHfpIp"
+  );
+
+  \Stripe\Stripe::setApiKey($stripe['secret_key']);
 
   $customer = \Stripe\Customer::create(array(
-      'source'  => $token,
-      'customer' => $customer_id,
+      'source'  => $_POST['stripeToken'],
   ));
 
   echo '<h1>New Card Added!</h1>';
