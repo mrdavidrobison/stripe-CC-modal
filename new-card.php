@@ -1,4 +1,5 @@
 <?php
+
   require_once('vendor/autoload.php');
 
   $stripe = array(
@@ -9,12 +10,10 @@
   \Stripe\Stripe::setApiKey($stripe['secret_key']);
 
   $customer = \Stripe\Customer::create(array(
-    'default_source' => $_POST['stripeToken']
+    "source" => $_POST['stripe-token']
   ));
 
-  $customer = \Stripe\Customer::update($_POST['stripeToken'], [
-    'default_source' => $_POST['stripeToken']
-  ]);
-
   echo '<h1>New Card Added!</h1>';
+
+  var_dump('Your token is ' . $_POST['stripe-token'] . ' tah dah!');
 ?>

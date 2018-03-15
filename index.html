@@ -4,27 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel='stylesheet' type='text/css' href='main.css'>
-  <script src="jquery-3.3.1.min.js"></script>
-  <title>Stripe CC Modal</title>
+  <title>Document</title>
 </head>
 <body>
-  <button type="button" class="btn btn-primary" onclick='addCard()'>Add New Credit Card</button>
-  <script src="app.js"></script>
-  <script src="https://js.stripe.com/v3/"></script>
-  <form id="card-form" method='POST' action='new-card.php'>
-    <label for="card-element" style='margin:10px;margin-top:20px;color:#878585;'>Credit or Debit Card</label>
-    <div id="card-element" class="StripeElement StripeElement--complete" style='margin:10px;'>
-      <div class="__PrivateStripeElement" style="margin: 0px !important; padding: 0px !important; border: none !important; display: block !important; background: transparent !important; position: relative !important; opacity: 1 !important;">
-        <iframe frameborder="0" allowtransparency="true" scrolling="no" name="__privateStripeFrame3" allowpaymentrequest="true" src="https://js.stripe.com/v3/elements-inner-card-39f486feeae05a8802cc591041e6376f.html#componentName=card&amp;wait=false&amp;rtl=false&amp;features[noop]=false&amp;origin=https%3A%2F%2Fstripe.com&amp;referrer=https%3A%2F%2Fstripe.com%2Fdocs&amp;controllerId=__privateStripeController0" title="Secure payment input frame" style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; height: 16.8px;">
-          </iframe>
-            <input class="__PrivateStripeElement-input" aria-hidden="true" style="border: none !important; display: block !important; position: absolute !important; height: 1px !important; top: 0px !important; left: 0px !important; padding: 0px !important; margin: 0px !important; width: 100% !important; opacity: 0 !important; background: transparent !important; pointer-events: none !important; font-size: 16px !important;">
-            <input class="__PrivateStripeElement-safariInput" aria-hidden="true" tabindex="-1" style="border: none !important; display: block !important; position: absolute !important; height: 1px !important; top: 0px !important; left: 0px !important; padding: 0px !important; margin: 0px !important; width: 100% !important; opacity: 0 !important; background: transparent !important; pointer-events: none !important; font-size: 16px !important;">
-      </div>
-    </div>
-      <button class='btn btn-success' style='margin:10px;margin-bottom:20px;'>Add New Card</button>
-    </div>
-  </form> 
+  <form action="new-card.php" id="payment-form" method="post">
+    <span class="payment-errors" style="color:red;font-size:12px;"></span>
+    <p>
+      <label for="">Card Number</label>
+      <input type="text" data-stripe="number">
+    </p>
+    <p>
+      <label for="">CVC</label>
+      <input type="text" data-stripe="cvc">
+    </p>
+    <p>
+      <label for="">Expiration mm/yyyy</label>
+      <input type="text" data-stripe="exp-month">
+      <input type="text" data-stripe="exp-year">
+    </p>        
+    <button type="submit">Submit</button>
+  </form>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://js.stripe.com/v2/"></script>
+  <script src='app.js'></script>
 </body>
 </html>

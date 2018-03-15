@@ -10,6 +10,7 @@ function addCard() {
   }
 
 }
+
 Stripe.setPublishableKey('pk_test_0moAazCvxJryQwvF0eCHfpIp');
 
 $('#payment-form').submit(function(e) {
@@ -22,12 +23,12 @@ $('#payment-form').submit(function(e) {
     console.log(response);
 
     if (response.error) {
-      $form.find('payment-errors').text(response.error.message);
+      $form.find('.payment-errors').text(response.error.message);
       $form.find('button').prop('disabled', false);
     } else {
-      var token = response.id;
-      $form.append($('<input type="hidden" name="stripe-token"/>').val(token));
-      $form.get(0).submit();
+        var token = response.id;
+        $form.append($('<input type="hidden" name="stripe-token"/>').val(token));
+        $form.get(0).submit();
     }
   });
   return false;
