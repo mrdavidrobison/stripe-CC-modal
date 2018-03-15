@@ -19,6 +19,6 @@
 
   $client = \Stripe\Customer::retrieve($customer['id']);
 
-  echo $client->sources->data[0]->brand;
-  echo $client->sources->data[0]->last4;  
+  echo '<h2>Card Brand: ' . $client->sources->data[0]->brand . '</h2><br />';
+  echo '<h2>Last 4: ' . $client->sources->data[0]->last4 . '</h2>';  
 ?>
