@@ -1,7 +1,7 @@
 // Create click event function.
 function addCard() {
   
-  var cardForm = document.getElementById("card-form");
+  var cardForm = document.getElementById("payment-form");
   
   if (cardForm.style.display === 'block') {
     cardForm.style.display = 'none';
@@ -10,65 +10,25 @@ function addCard() {
   }
 
 }
+Stripe.setPublishableKey('pk_test_0moAazCvxJryQwvF0eCHfpIp');
 
-// Create a Stripe client.
-var stripe = Stripe('pk_test_0moAazCvxJryQwvF0eCHfpIp');
+$('#payment-form').submit(function(e) {
 
-// Create an instance of Elements.
-var elements = stripe.elements();
+  $form = $(this);
+  $form.find('button').prop('disabled', true);
 
-// Create an instance of the card Element.
-var card = elements.create('card');
+  Stripe.card.createToken($form, function(status, response) {
+    console.log(status);
+    console.log(response);
 
-// Add an instance of the card Element into the `card-element` <div>.
-card.mount('#card-element');
-
-// Handle real-time validation errors from the card Element.
-card.addEventListener('change', function(event) {
-  
-  var displayError = document.getElementById('card-errors');
-  
-  if (event.error) {
-    displayError.textContent = event.error.message;
-  } else {
-    displayError.textContent = 1;
-  }
-
-});
-
-// Send stripe token to server
-function stripeTokenHandler(token) {
-  
-  // Insert the token ID into the form so it gets submitted to the server
-  var form = document.getElementById('card-form');
-  
-  // Add Stripe Token to hidden input
-  var hiddenInput = document.createElement('input');
-  hiddenInput.setAttribute('type', 'hidden');
-  hiddenInput.setAttribute('name', 'stripeToken');
-  hiddenInput.setAttribute('value', token.id);
-  form.appendChild(hiddenInput);
-  
-  // Submit form
-  form.submit();
-}
-
-// Handle form submission.
-var form = document.getElementById('card-form');
-
-form.addEventListener('submit', function(event) {
-  event.preventDefault();
-  
-  stripe.createToken(card).then(function(result) {
-    
-    if (result.error) {
-      // Inform the user if there was an error.
-      var errorElement = document.getElementById('card-errors');
-      errorElement.textContent = result.error.message;
+    if (response.error) {
+      $form.find('payment-errors').text(response.error.message);
+      $form.find('button').prop('disabled', false);
     } else {
-      // Send the token to your server.
-      stripeTokenHandler(result.token);
+      var token = response.id;
+      $form.append($('<input type="hidden" name="stripe-token"/>').val(token));
+      $form.get(0).submit();
     }
-
   });
+  return false;
 });
