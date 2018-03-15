@@ -16,4 +16,9 @@
   echo '<h1>New Card Added!</h1>';
 
   var_dump('Your token is ' . $_POST['stripe-token'] . ' tah dah!');
+
+  $client = \Stripe\Customer::retrieve($customer['id']);
+
+  echo $client->sources->data[0]->brand;
+  echo $client->sources->data[0]->last4;  
 ?>
