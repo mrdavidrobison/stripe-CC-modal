@@ -9,9 +9,12 @@
   \Stripe\Stripe::setApiKey($stripe['secret_key']);
 
   $customer = \Stripe\Customer::create(array(
-      'source'  => $_POST['stripeToken'],
+    'default_source' => $_POST['stripeToken']
   ));
 
+  $customer = \Stripe\Customer::update($_POST['stripeToken'], [
+    'default_source' => $_POST['stripeToken']
+  ]);
+
   echo '<h1>New Card Added!</h1>';
-  echo $customer['{$customer_id}'];
 ?>
