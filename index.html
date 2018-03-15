@@ -4,9 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel='stylesheet' type='text/css' href='main.css'>
+  <title>Stripe CC Modal</title>
 </head>
 <body>
+  <button type="button" class="btn btn-primary" onclick='addCard()'>Add New Credit Card</button>  
   <form action="new-card.php" id="payment-form" method="post">
     <span class="payment-errors" style="color:red;font-size:12px;"></span>
     <p>
@@ -22,7 +25,7 @@
       <input type="text" data-stripe="exp-month">
       <input type="text" data-stripe="exp-year">
     </p>        
-    <button type="submit">Submit</button>
+    <button type="submit" class='btn btn-success' style='margin:10px;margin-bottom:20px;'>Submit</button>
   </form>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://js.stripe.com/v2/"></script>
