@@ -66,7 +66,7 @@ html.modal-active, body.modal-active {
 #modal-container .modal-background .modal {
   background: #6b7c93;
   padding: 50px;
-  display: inline-block;
+  display: inline-flex;
   border-radius: 3px;
   font-weight: 300;
   position: relative;
@@ -113,14 +113,14 @@ html.modal-active, body.modal-active {
   text-align: center;
 }
 .content .buttons .button {
+  font-family: 'Raleway', sans-serif;
   display: inline-block;
   text-align: center;
   padding: 10px 15px;
   margin: 39%;
   font-size: 18px;
   color: white;
-  background-color: #307cff;
-  border-radius: 3px;
+  border-radius: 5px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, .3);
   cursor: pointer;
 }
