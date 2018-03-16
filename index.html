@@ -23,14 +23,14 @@
               <label for="card-element" style="font-weight:500; font-size:14px; display:block; margin-bottom:8px;">Credit or Debit Card</label>
             </p>
             <p>
-              <input type="number" placeholder="Card Number" class="credit-card" data-stripe="number" maxlength="16">
+              <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="Card Number" class="credit-card" data-stripe="number" maxlength="16">
             </p>
             <p>
-              <input type="number" placeholder="CVC" class="cvc" data-stripe="cvc" maxlength="3">
+              <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="CVC" class="cvc" data-stripe="cvc" maxlength="3">
             </p>
             <p>
-              <input type="number" placeholder="MM" class="exp-month" data-stripe="exp-month" maxlength="2">
-              <input type="number" placeholder="YYYY" class="exp-year" data-stripe="exp-year" maxlength="4">
+              <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="MM" class="exp-month" data-stripe="exp-month" maxlength="2">
+              <input type="number" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" placeholder="YYYY" class="exp-year" data-stripe="exp-year" maxlength="4">
             </p>        
             <p> 
               <button type="submit" class='btn btn-success'>Submit</button>
