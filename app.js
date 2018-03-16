@@ -1,16 +1,17 @@
-// Create click event function.
-function addCard() {
-  
-  var cardForm = document.getElementById("payment-form");
-  
-  if (cardForm.style.display === 'block') {
-    cardForm.style.display = 'none';
-  } else {
-    cardForm.style.display = 'block';
-  }
+// Modal Animations
+$('.button').click(function(){
+  var buttonId = $(this).attr('id');
+  $('#modal-container').removeAttr('class').addClass(buttonId);
+  $('body').addClass('modal-active');
+})
 
-}
+$('.close-btn').click(function(){
+  $('#modal-container').addClass('out');
+  $('body').removeClass('modal-active');
+});
 
+
+// Stripe
 Stripe.setPublishableKey('pk_test_0moAazCvxJryQwvF0eCHfpIp');
 
 $('#payment-form').submit(function(e) {
@@ -30,6 +31,8 @@ $('#payment-form').submit(function(e) {
         $form.append($('<input type="hidden" name="stripe-token"/>').val(token));
         $form.get(0).submit();
     }
+    
   });
+
   return false;
 });
