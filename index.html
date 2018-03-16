@@ -23,14 +23,14 @@
               <label for="card-element" style="font-weight:500; font-size:14px; display:block; margin-bottom:8px;">Credit or Debit Card</label>
             </p>
             <p>
-              <input type="text" placeholder="Card Number" class="credit-card" data-stripe="number" pattern="{0,9}" maxlength="16">
+              <input type="number" placeholder="Card Number" class="credit-card" data-stripe="number" maxlength="16">
             </p>
             <p>
-              <input type="text" placeholder="CVC" class="cvc" data-stripe="cvc" pattern="{0,9}" maxlength="3">
+              <input type="number" placeholder="CVC" class="cvc" data-stripe="cvc" maxlength="3">
             </p>
             <p>
-              <input type="text" placeholder="MM" class="exp-month" data-stripe="exp-month" pattern="{0,9}" maxlength="2">
-              <input type="text" placeholder="YYYY" class="exp-year" data-stripe="exp-year" pattern="{0,9}" maxlength="4">
+              <input type="number" placeholder="MM" class="exp-month" data-stripe="exp-month" maxlength="2">
+              <input type="number" placeholder="YYYY" class="exp-year" data-stripe="exp-year" maxlength="4">
             </p>        
             <p> 
               <button type="submit" class='btn btn-success'>Submit</button>
