@@ -11,6 +11,32 @@ $('.close-btn').click(function(){
 });
 
 
+// Automatically move to next input field after limit is met
+$('.credit-card').keyup(function() {
+  if(this.value.length == $(this).attr('maxlength')) {
+      $('.cvc').focus();
+  }
+});
+
+$('.cvc').keyup(function() {
+  if(this.value.length == $(this).attr('maxlength')) {
+      $('.exp-month').focus();
+  }
+});
+
+$('.exp-month').keyup(function() {
+  if(this.value.length == $(this).attr('maxlength')) {
+      $('.exp-year').focus();
+  }
+});
+
+$('.exp-year').keyup(function() {
+  if(this.value.length == $(this).attr('maxlength')) {
+      $('.btn-success').focus();
+  }
+});
+
+
 // Stripe
 Stripe.setPublishableKey('pk_test_0moAazCvxJryQwvF0eCHfpIp');
 
@@ -31,7 +57,7 @@ $('#payment-form').submit(function(e) {
         $form.append($('<input type="hidden" name="stripe-token"/>').val(token));
         $form.get(0).submit();
     }
-    
+
   });
 
   return false;
