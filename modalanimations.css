@@ -64,7 +64,7 @@ html.modal-active, body.modal-active {
   vertical-align: middle;
 }
 #modal-container .modal-background .modal {
-  background: white;
+  background: #6b7c93;
   padding: 50px;
   display: inline-block;
   border-radius: 3px;
@@ -97,7 +97,6 @@ html.modal-active, body.modal-active {
 .content {
   min-height: 100%;
   height: 100%;
-  background: white;
   position: relative;
   z-index: 0;
 }
@@ -118,16 +117,16 @@ html.modal-active, body.modal-active {
   text-align: center;
   padding: 10px 15px;
   margin: 39%;
-  background: red;
   font-size: 18px;
-  background-color: #efefef;
+  color: white;
+  background-color: #307cff;
   border-radius: 3px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, .3);
   cursor: pointer;
 }
 .content .buttons .button:hover {
   color: white;
-  background: #009bd5;
+  background: #3a80c1;
 }
 @keyframes unfoldIn {
   0% {

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
 .btn-primary {
   margin-top: 20%;
   margin-left: 40%;
@@ -6,4 +8,30 @@
 
 .btn-success {
   font-weight: 800;
+  margin: 0em 45%;
+}
+
+.content {
+  background-image: url('stars-3840x2160-galaxy-4k-6362.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.close-btn {
+  font-size: 30px;
+  float: right;
+  margin: -1em 0em;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  transform: scale(1.15);
+  transition: 0.1s;
+  color: red;
+}
+
+.modal {
+  width: 670px;
+  margin: 0 auto;
+  font-family: 'Raleway', sans-serif;
 }
