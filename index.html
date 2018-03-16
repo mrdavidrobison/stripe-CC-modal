@@ -15,23 +15,27 @@
       <div class="modal" id="modal">
         <form action="new-card.php" id="payment-form" method="post">
           <span class="payment-errors" style="color:red;font-size:12px;"></span>
-          <span class='close-btn'>X</span>
-          <p style='text-align:left;'>
-            <label for="">Card Number</label>
-            <input type="text" data-stripe="number">
-          </p>
-          <p style='text-align:left;'>
-            <label for="">CVC</label>
-            <input type="text" data-stripe="cvc">
-          </p>
-          <p style='text-align:left;'>
-            <label for="">Expiration mm/yyyy</label>
-            <input type="text" data-stripe="exp-month">
-            <input type="text" data-stripe="exp-year">
-          </p>        
-          <p> 
-            <button type="submit" class='btn btn-success' style='margin:10px;margin-bottom:20px;'>Submit</button>
-              </p>
+          <div class='form-row'>
+            <p>
+              <span class='close-btn'>X</span>
+            </p>
+            <p>
+              <label for="card-element" style="font-weight:500; font-size:14px; display:block; margin-bottom:8px;">Credit or Debit Card</label>
+            </p>
+            <p>
+              <input type="text" placeholder="Card Number" class="credit-card" data-stripe="number" maxlength="16">
+            </p>
+            <p>
+              <input type="text" placeholder="CVC" class="cvc" data-stripe="cvc" maxlength="3">
+            </p>
+            <p>
+              <input type="text" placeholder="MM" class="exp-month" data-stripe="exp-month" maxlength="2">
+              <input type="text" placeholder="YYYY" class="exp-year" data-stripe="exp-year" maxlength="4">
+            </p>        
+            <p> 
+              <button type="submit" class='btn btn-success'>Submit</button>
+            </p>
+          </div>
         </form>
       </div>
     </div>
